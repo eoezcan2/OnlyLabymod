@@ -6,7 +6,7 @@ import at.emreeocn.onlylabymod.main.Main;
 
 public class Config {
 
-	public static String kickMessage() {
+	public static String getKickMessage() {
 		try {
 			return ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("kick-message"));
 					
