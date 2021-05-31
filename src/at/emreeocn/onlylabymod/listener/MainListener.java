@@ -13,29 +13,30 @@ import net.labymod.serverapi.bukkit.event.BukkitLabyModPlayerLoginEvent;
 
 public class MainListener implements Listener {
 
-	private static ArrayList<UUID> labyModPlayers = new ArrayList<UUID>();
+	private static ArrayList<UUID> labymodPlayers = new ArrayList<UUID>();
 	
 	/* Listener */
 	@EventHandler
 	public void onLabyModJoin(BukkitLabyModPlayerLoginEvent e) {
-		labyModPlayers.add(e.getPlayer().getUniqueId());
+		labymodPlayers.add(e.getPlayer().getUniqueId());
 	}
 	
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent e) {
-		if(labyModPlayers.contains(e.getPlayer().getUniqueId()))
-			labyModPlayers.remove(e.getPlayer().getUniqueId());
+		if(labymodPlayers.contains(e.getPlayer().getUniqueId()))
+			labymodPlayers.remove(e.getPlayer().getUniqueId());
 	}
 	
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent e) {
-		if(!labyModPlayers.contains(e.getPlayer().getUniqueId())) {
+		if(!labymodPlayers.contains(e.getPlayer().getUniqueId())) {
 			e.getPlayer().kickPlayer(Config.getKickMessage());
 		}
 	}
 	
+	/* Getters */
 	public static ArrayList<UUID> getLabyModPlayers() {
-		return labyModPlayers;
+		return labymodPlayers;
 	}
 	
 }
