@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import at.emreeocn.onlylabymod.util.Config;
-import net.labymod.serverapi.bukkit.event.LabyModPlayerJoinEvent;
+import net.labymod.serverapi.bukkit.event.BukkitLabyModPlayerLoginEvent;
 
 public class MainListener implements Listener {
 
@@ -17,7 +17,7 @@ public class MainListener implements Listener {
 	
 	/* Listener */
 	@EventHandler
-	public void onLabyModJoin(LabyModPlayerJoinEvent e) {
+	public void onLabyModJoin(BukkitLabyModPlayerLoginEvent e) {
 		labyModPlayers.add(e.getPlayer().getUniqueId());
 	}
 	
